@@ -62,8 +62,21 @@ final class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertEqual(receivedError?.domain, requestError.domain)
     }
     
-    func test_get_fromURLFailsOnAllNilValues() {
+    func test_get_fromURLFailsOnAllInvalidRepresentationCases() {
+        let nonHTTPURLResponse = URLResponse()
+        let anyHTTPURLResponse = HTTPURLResponse()
+        let anyData = Data("any data".utf8)
+        let anyError = NSError(domain: "any error", code: 0)
         XCTAssertNotNil(resultErrorFor(data: nil, response: nil, error: nil))
+        XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse, error: nil))
+        XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse, error: nil))
+        XCTAssertNotNil(resultErrorFor(data: anyData, response: nil, error: nil))
+        XCTAssertNotNil(resultErrorFor(data: anyData, response: nil, error: anyError))
+        XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse, error: anyError))
+        XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse, error: anyError))
+        XCTAssertNotNil(resultErrorFor(data: anyData, response: nonHTTPURLResponse, error: anyError))
+        XCTAssertNotNil(resultErrorFor(data: anyData, response: anyHTTPURLResponse, error: anyError))
+        XCTAssertNotNil(resultErrorFor(data: anyData, response: nonHTTPURLResponse, error: nil))
     }
     
     // MARK: Helpers
