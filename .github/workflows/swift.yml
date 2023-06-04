@@ -17,8 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Select Xcode
-      run: sudo xcode-select -switch /Application/Xcode_14.3.app
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
     
     - name: Clean Build Test
       run: xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
