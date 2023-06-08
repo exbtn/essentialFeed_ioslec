@@ -1,3 +1,13 @@
+### Story: Customer requests to see their image feed
+
+#### Narrative #1
+
+```
+As an online customer
+I want to the app to automatically load my latest image feed
+So I can always enjoy the newest images of my friends
+```
+
 #### Narrative #2
 
 ```
