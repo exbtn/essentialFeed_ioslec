@@ -1,6 +1,6 @@
 ### Story: Customer requests to see their image feed
 
-#### Narrative #1
+### Narrative #1
 
 ```
 As an online customer
@@ -8,7 +8,7 @@ I want to the app to automatically load my latest image feed
 So I can always enjoy the newest images of my friends
 ```
 
-##### Scenarios (Acceptance criteria)
+#### Scenarios (Acceptance criteria)
 
 ```
 Given the customer has connectivity
@@ -17,7 +17,7 @@ Given the customer has connectivity
   And replace the cache with the new feed
 ```
 
-#### Narrative #2
+### Narrative #2
 
 ```
 As an offline customer
@@ -25,7 +25,7 @@ I want the appp to show the latest saved version of my image feed
 So I can always enjoy images of my friends
 ```
 
-##### Scenarios (Acceptance criteria)
+#### Scenarios (Acceptance criteria)
 
 ```
 Given the customer doesn't have connectivity
