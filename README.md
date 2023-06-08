@@ -25,7 +25,7 @@ I want the appp to show the latest saved version of my image feed
 So I can always enjoy images of my friends
 ```
 
-##### Scenarious (Acceptance criteria)
+##### Scenarios (Acceptance criteria)
 
 ```
 Given the customer doesn't have connectivity
