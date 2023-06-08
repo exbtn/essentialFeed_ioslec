@@ -67,7 +67,7 @@ Given the customer doesn't have connectivity
 
 #### No connectivity - error course (sad path):
 1. System delivers connectivity error.
-
+***
 ### Load Feed From Cache Use Case
 
 #### Primary course (happy path):
@@ -86,7 +86,7 @@ Given the customer doesn't have connectivity
 
 #### Empty cache course (sad path):
 1. System delivers no feed items.
-
+***
 ### Cache Feed Use Case
 
 #### Data:
@@ -105,3 +105,4 @@ Given the customer doesn't have connectivity
 
 #### Saving error course (sad path):
 1. System delivers error.
+***
