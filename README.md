@@ -50,7 +50,7 @@ Given the customer doesn't have connectivity
 
 ## Use Cases
 
-### Load Feed Remote Use Case
+### Load Feed From Remote Use Case
 
 #### Data:
 - URL
