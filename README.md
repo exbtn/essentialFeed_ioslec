@@ -20,12 +20,12 @@ So I can always enjoy images of my friends
 
 ```
 Given the customer doesn't have connectivity
-And there's a cached version of the feed
-When the customer requests to see the feed
-Then the app should display the latest feed saved
+  And there's a cached version of the feed
+ When the customer requests to see the feed
+ Then the app should display the latest feed saved
 
 Given the customer doesn't have connectivity
-And the cache is empty
-When the customer requests to see the feed
-Then the app should display an error message
+  And the cache is empty
+ When the customer requests to see the feed
+ Then the app should display an error message
 ```
