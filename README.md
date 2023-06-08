@@ -1,3 +1,5 @@
+## BDD Specs
+
 ### Story: Customer requests to see their image feed
 
 ### Narrative #1
