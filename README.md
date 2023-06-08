@@ -8,6 +8,15 @@ I want to the app to automatically load my latest image feed
 So I can always enjoy the newest images of my friends
 ```
 
+##### Scenarios (Acceptance criteria)
+
+```
+Given the customer has connectivity
+ When the customer requests to see their feed
+ Then the app should display the latest feed from remote
+  And replace the cache with the new feed
+```
+
 #### Narrative #2
 
 ```
