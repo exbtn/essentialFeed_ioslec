@@ -10,7 +10,7 @@ import EssentialFeed
 
 class LocalFeedLoader {
     
-    let store: FeedStore
+    private let store: FeedStore
     private let currentDate: () -> Date
     
     init(store: FeedStore, currentDate: @escaping () -> Date) {
