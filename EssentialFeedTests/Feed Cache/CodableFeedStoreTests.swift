@@ -99,53 +99,39 @@ final class CodableFeedStoreTests: XCTestCase, FailabeFeedStore {
     func test_delete_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         
-        let deletionError = deleteCache(from: sut)
-        
-        XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
+        assertThatDeleteDeliversNoErrorOnEmptyCache(on: sut)
     }
     
     func test_delete_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
         
-        deleteCache(from: sut)
-        
-        expect(sut, toRetrieve: .empty)
+        assertThatDeleteHasNoSideEffectsOnEmptyCache(on: sut)
     }
     
     func test_delete_deliversNoErrorOnNonEmptyCache() {
         let sut = makeSUT()
-        insert((uniqueImageFeed().local, Date()), to: sut)
         
-        let deletionError = deleteCache(from: sut)
-        
-        XCTAssertNil(deletionError, "Expected non-empty cache deletion succeded")
+        assertThatDeleteDeliversNoErrorOnNonEmptyCache(on: sut)
     }
     
     func test_delete_emptiesPreviouslyInsertedCache() {
         let sut = makeSUT()
-        insert((uniqueImageFeed().local, Date()), to: sut)
         
-        deleteCache(from: sut)
-        
-        expect(sut, toRetrieve: .empty)
+        assertThatDeleteEmptiesPreviouslyInsertedCache(on: sut)
     }
     
     func test_delete_deliversErrorOnDeletionFailure() {
         let noDeletePermissionURL = cachesDirectory()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
 
-        let deletionError = deleteCache(from: sut)
-
-        XCTAssertNotNil(deletionError, "Expected to cache deletion fail")
+        assertThatDeleteDeliversErrorOnDeletionFailure(on: sut)
     }
     
     func test_delete_hasNoSideEffectsOnDeletionFailure() {
         let noDeletePermissionURL = cachesDirectory()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
 
-        deleteCache(from: sut)
-
-        expect(sut, toRetrieve: .empty)
+        assertThatDeleteHasNoSideEffectsOnDeletionFailure(on: sut)
     }
     
     func test_storeSideEffects_runSerially() {
