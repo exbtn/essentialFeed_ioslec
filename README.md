@@ -118,3 +118,23 @@ Given the customer doesn't have connectivity
 #### Saving error course (sad path):
 1. System delivers error.
 ***
+
+## Technical Specs
+
+- Retrieve
+    - Empty cache
+    - Non-empty cache returns data
+    - Non-empty cache twice returns same data (no side-effects)
+    - Error (if applicable, e.g. invalid data)
+    
+- Insert
+    - To empty cache stores data
+    - To non-empty cache overrides previous data with new data
+    - Error (if applicable, e.g. no write permission)
+    
+- Delete
+    - Empty cache
+    - Non-epmty cache leaves cache empty
+    - Error (if applicable, e.g. no delete permission)
+
+- Side-effects must run serially to avoid reca-conditions
