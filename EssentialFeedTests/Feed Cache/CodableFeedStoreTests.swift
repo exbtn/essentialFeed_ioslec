@@ -67,19 +67,19 @@ final class CodableFeedStoreTests: XCTestCase, FailabeFeedStore {
     func test_insert_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         
-        assertThatDeliversNoErrorOnEmptyCache(on: sut)
+        assertThatInsertDeliversNoErrorOnEmptyCache(on: sut)
     }
     
     func test_insert_deliversNoErrorOnNonEmptyCache() {
         let sut = makeSUT()
         
-        assertThatDeliversNoErrorOnNonEmptyCache(on: sut)
+        assertThatInsertDeliversNoErrorOnNonEmptyCache(on: sut)
     }
     
     func test_insert_overridesPreviouslyInsertedCacheValue() {
         let sut = makeSUT()
         
-        assertThatOverridesPreviouslyInsertedCacheValue(on: sut)
+        assertThatInsertOverridesPreviouslyInsertedCacheValue(on: sut)
     }
     
     func test_insert_deliversErrorOnInsertionError() {

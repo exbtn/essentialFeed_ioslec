@@ -21,7 +21,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
-        insert((feed, timestamp), to: sut)
+        insert((feed, timestamp), to: sut, file: file, line: line)
         
         expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp), file: file, line: line)
     }
@@ -30,7 +30,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
-        insert((feed, timestamp), to: sut)
+        insert((feed, timestamp), to: sut, file: file, line: line)
         
         expect(sut, toRetrieveTwice: .found(feed: feed, timestamp: timestamp), file: file, line: line)
     }
