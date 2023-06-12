@@ -34,6 +34,29 @@ extension FeedStoreSpecs where Self: XCTestCase {
         
         expect(sut, toRetrieveTwice: .found(feed: feed, timestamp: timestamp), file: file, line: line)
     }
+    
+    func assertThatInsertDeliversNoErrorOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
+        let firstInsertionError = insert((uniqueImageFeed().local, Date()), to: sut)
+        XCTAssertNil(firstInsertionError, "Expected to insert cache successfully", file: file, line: line)
+    }
+    
+    func assertThatInsertDeliversNoErrorOnNonEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
+        insert((uniqueImageFeed().local, Date()), to: sut, file: file, line: line)
+        
+        let latestInsertionError = insert((uniqueImageFeed().local, Date()), to: sut)
+        
+        XCTAssertNil(latestInsertionError, "Expected to override cache successfully", file: file, line: line)
+    }
+    
+    func assertThatInsertOverridesPreviouslyInsertedCacheValue(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
+        insert((uniqueImageFeed().local, Date()), to: sut, file: file, line: line)
+        
+        let latestFeed = uniqueImageFeed().local
+        let latestTimestamp = Date()
+        insert((latestFeed, latestTimestamp), to: sut, file: file, line: line)
+        
+        expect(sut, toRetrieve: .found(feed: latestFeed, timestamp: latestTimestamp), file: file, line: line)
+    }
 }
 
 extension FeedStoreSpecs where Self: XCTestCase {
