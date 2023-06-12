@@ -122,7 +122,8 @@ Given the customer doesn't have connectivity
 ## Technical Specs
 
 - Retrieve
-    - Empty cache
+    - Empty cache returns empty
+    - Empty cache twice return empty (no side-effects)
     - Non-empty cache returns data
     - Non-empty cache twice returns same data (no side-effects)
     - Error (if applicable, e.g. invalid data)
