@@ -184,9 +184,7 @@
 		6D1A3A052A25036E00027018 = {
 			isa = PBXGroup;
 			children = (
-				6D98A3242A3BC4B000C1E6CD /* EssentialFeedCacheIntegrationTests.xctestplan */,
-				6D99F8B62A2BDA72006ECDD4 /* CI.xctestplan */,
-				6DC842EE2A2A73080018B0E9 /* EssentialFeed.xctestplan */,
+				6D98A32B2A3BCF8800C1E6CD /* TestPlans */,
 				6D1A3A112A25036E00027018 /* EssentialFeed */,
 				6D1A3A1B2A25036E00027018 /* EssentialFeedTests */,
 				6D99F8AC2A2BD2B8006ECDD4 /* EssentialFeedAPIEndToEndTests */,
@@ -291,6 +289,16 @@
 				6D98A3122A3BBDB900C1E6CD /* ManagedFeedImage.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		6D98A32B2A3BCF8800C1E6CD /* TestPlans */ = {
+			isa = PBXGroup;
+			children = (
+				6D98A3242A3BC4B000C1E6CD /* EssentialFeedCacheIntegrationTests.xctestplan */,
+				6D99F8B62A2BDA72006ECDD4 /* CI.xctestplan */,
+				6DC842EE2A2A73080018B0E9 /* EssentialFeed.xctestplan */,
+			);
+			name = TestPlans;
 			sourceTree = "<group>";
 		};
 		6D99F8A22A2B92D3006ECDD4 /* Helpers */ = {
