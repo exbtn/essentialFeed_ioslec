@@ -22,6 +22,21 @@ private final class CoreDataFeedStore: FeedStore {
     }
 }
 
+@objc(ManagedCache)
+internal class ManagedCache: NSManagedObject {
+    @NSManaged internal var timestamp: Date
+    @NSManaged internal var feed: NSOrderedSet
+}
+
+@objc(ManagedFeedImage)
+internal class ManagedFeedImage: NSManagedObject {
+    @NSManaged internal var id: UUID
+    @NSManaged internal var imageDescription: String?
+    @NSManaged internal var location: String?
+    @NSManaged internal var url: URL
+    @NSManaged internal var cache: ManagedCache
+}
+
 final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     
     func test_retrieve_deliversEmptyOnEmptyCache() {
