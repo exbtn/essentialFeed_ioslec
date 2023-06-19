@@ -31,3 +31,13 @@ public protocol FeedStore {
     /// Clients are responsible to dispatch to appropriate threads, if needed.
     func retrieve(completion: @escaping RetrievalCompletion)
 }
+
+public extension Result where Success == Void {
+    
+    /// A success, storing a Success value.
+    ///
+    /// Instead of `.success`, now  `.success`
+    static var success: Result {
+        return .success(())
+    }
+}

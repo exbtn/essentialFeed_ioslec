@@ -31,7 +31,7 @@ final class FeedStoreSpy: FeedStore {
     }
     
     func completeDeletionSuccessfully(at index: Int = 0) {
-        deletionCompletions[index](.success(()))
+        deletionCompletions[index](.success)
     }
     
     func completeRetrieval(with error: Error, at index: Int = 0) {
@@ -48,7 +48,7 @@ final class FeedStoreSpy: FeedStore {
     }
     
     func completeInsertionSuccessfully(at index: Int = 0) {
-        insertionCompletions[index](.success(()))
+        insertionCompletions[index](.success)
     }
     
     func retrieve(completion: @escaping RetrievalCompletion) {
