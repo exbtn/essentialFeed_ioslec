@@ -159,6 +159,7 @@
 		6D42B9F12AB0C6FF00DBD714 /* FeedViewControllerTests+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localized.swift"; sourceTree = "<group>"; };
 		6D42B9F42AB0C7FF00DBD714 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Feed.stringsdict; sourceTree = "<group>"; };
 		6D42B9F62AB0C84E00DBD714 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = uk; path = uk.lproj/Feed.stringsdict; sourceTree = "<group>"; };
+		6D42B9F72AB0C89700DBD714 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "pt-BR"; path = "pt-BR.lproj/Feed.stringsdict"; sourceTree = "<group>"; };
 		6D4D79A02A37C7D9008E8B23 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
 		6D4D79A22A37DCAC008E8B23 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 		6D4D79A42A37DD1D008E8B23 /* XCTestCase+FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedStoreSpecs.swift"; sourceTree = "<group>"; };
@@ -691,6 +692,7 @@
 				en,
 				Base,
 				uk,
+				"pt-BR",
 			);
 			mainGroup = 6D1A3A052A25036E00027018;
 			productRefGroup = 6D1A3A102A25036E00027018 /* Products */;
@@ -887,6 +889,7 @@
 			children = (
 				6D42B9F42AB0C7FF00DBD714 /* en */,
 				6D42B9F62AB0C84E00DBD714 /* uk */,
+				6D42B9F72AB0C89700DBD714 /* pt-BR */,
 			);
 			name = Feed.stringsdict;
 			sourceTree = "<group>";
