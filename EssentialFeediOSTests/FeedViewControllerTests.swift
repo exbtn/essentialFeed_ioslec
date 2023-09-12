@@ -240,6 +240,17 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.cancelledImageURLs, [image0.url, image1.url], "Expected second cancelled image URL request once second image is not near visible anymore")
     }
     
+    func test_feedImageView_doesNotRenderLoadedImageWhenNotVisibleAnymore() {
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading(with: [makeImage()], at: 0)
+        
+        let view = sut.simulateFeedImageViewNotVisible(at: 0)
+        loader.completeImageLoading(with: anyImageData())
+        
+        XCTAssertNil(view?.renderedImage, "Expected no rendered image when an image load finishes after the view is not visible anymore")
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
@@ -281,6 +292,10 @@ final class FeedViewControllerTests: XCTestCase {
     
     private func makeImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "http://any-url.com")!) -> FeedImage {
         return FeedImage(id: UUID(), description: description, location: location, url: url)
+    }
+    
+    private func anyImageData() -> Data {
+        return UIImage.make(withColor: .red).pngData()!
     }
     
     class LoaderSpy: FeedLoader, FeedImageDataLoader {
@@ -349,12 +364,15 @@ private extension FeedViewController {
         return feedImageView(at: index) as? FeedImageCell
     }
     
-    func simulateFeedImageViewNotVisible(at index: Int) {
+    @discardableResult
+    func simulateFeedImageViewNotVisible(at index: Int) -> FeedImageCell? {
         let view = simulateFeedImageViewVisible(at: index)
         
         let delegate = tableView.delegate
         let indexPath = IndexPath(row: index, section: feedImageSection)
         delegate?.tableView?(tableView, didEndDisplaying: view!, forRowAt: indexPath)
+        
+        return view
     }
     
     func simulateFeedImageViewNearVisible(at row: Int) {

@@ -71,6 +71,9 @@ Location</string>
                                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                                                 </preferredSymbolConfiguration>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="retryButtonTapped" destination="ioJ-Sb-W8g" eventType="touchUpInside" id="EVz-Dl-oYh"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -111,6 +114,14 @@ Location</string>
                                         <constraint firstItem="7UM-1p-3G1" firstAttribute="trailing" secondItem="MtV-wc-dBu" secondAttribute="trailingMargin" id="xAp-kL-TmN"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="2SD-0k-rUV" id="kf4-8g-Ujn"/>
+                                    <outlet property="feedImageContainer" destination="ERT-Ua-hFC" id="Up8-G3-eBm"/>
+                                    <outlet property="feedImageRetryButton" destination="Eh2-8m-yWm" id="NvC-hy-Q9E"/>
+                                    <outlet property="feedImageView" destination="bp4-JP-SCW" id="2Dm-Ti-6eR"/>
+                                    <outlet property="locationContainer" destination="0Lx-sb-Jck" id="gCZ-PR-luL"/>
+                                    <outlet property="locationLabel" destination="rkY-Ut-I21" id="fos-Cd-Ip0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
