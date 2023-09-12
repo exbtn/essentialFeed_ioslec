@@ -122,19 +122,11 @@ Location</string>
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
-                            <action selector="refresh" destination="Umo-TV-OTo" eventType="valueChanged" id="Mfc-pq-fL7"/>
+                            <action selector="refresh" destination="yg4-yh-lIo" eventType="valueChanged" id="dpq-ZS-ip2"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <outlet property="refreshController" destination="Umo-TV-OTo" id="pgd-XO-Qnq"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYl-ka-I0C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="Umo-TV-OTo" customClass="FeedRefreshViewController" customModule="EssentialFeediOS" customModuleProvider="target">
-                    <connections>
-                        <outlet property="view" destination="x2i-fd-gu0" id="icp-mU-RNS"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="880.15267175572512" y="-13.380281690140846"/>
         </scene>
