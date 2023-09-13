@@ -30,8 +30,6 @@ public final class FeedUIComposer {
     
 }
 
-
-
 private extension FeedViewController {
     static func makeWith(delegate: FeedViewControllerDelegate, title: String) -> FeedViewController {
         let bundle = Bundle(for: FeedViewController.self)
