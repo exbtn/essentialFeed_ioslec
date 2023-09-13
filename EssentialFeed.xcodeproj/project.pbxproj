@@ -73,6 +73,7 @@
 		6D9B35E02A34FDEE0061A87B /* FeedStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9B35DF2A34FDEE0061A87B /* FeedStoreSpy.swift */; };
 		6DECFCDF2AB25A560039775D /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DECFCDE2AB25A560039775D /* MainQueueDispatchDecorator.swift */; };
 		6DECFCE72AB25B260039775D /* FeedImageDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DECFCE62AB25B260039775D /* FeedImageDataLoaderPresentationAdapter.swift */; };
+		6DECFCE92AB25B700039775D /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DECFCE82AB25B700039775D /* WeakRefVirtualProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +197,7 @@
 		6DC842EE2A2A73080018B0E9 /* EssentialFeed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeed.xctestplan; sourceTree = "<group>"; };
 		6DECFCDE2AB25A560039775D /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		6DECFCE62AB25B260039775D /* FeedImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
+		6DECFCE82AB25B700039775D /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +323,7 @@
 				6D12CDCD2A9B721C00DAC1B2 /* FeedUIComposer.swift */,
 				6DECFCDE2AB25A560039775D /* MainQueueDispatchDecorator.swift */,
 				6DECFCE62AB25B260039775D /* FeedImageDataLoaderPresentationAdapter.swift */,
+				6DECFCE82AB25B700039775D /* WeakRefVirtualProxy.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 			files = (
 				6D12CDD82A9BBAF600DAC1B2 /* FeedViewModel.swift in Sources */,
 				6D12CDD62A9BAF9B00DAC1B2 /* FeedPresenter.swift in Sources */,
+				6DECFCE92AB25B700039775D /* WeakRefVirtualProxy.swift in Sources */,
 				6D12CDC42A9B68CE00DAC1B2 /* FeedImageDataLoader.swift in Sources */,
 				6D42B9EC2AB0BAAE00DBD714 /* UITableView+Dequeueing.swift in Sources */,
 				6D12CDDA2A9BBB0D00DAC1B2 /* FeedLoadingViewModel.swift in Sources */,
