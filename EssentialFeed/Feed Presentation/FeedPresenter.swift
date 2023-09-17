@@ -11,24 +11,8 @@ public struct FeedLoadingViewModel {
     public let isLoading: Bool
 }
 
-public struct FeedErorrViewModel {
-    public let message: String?
-    
-    static var noError: FeedErorrViewModel {
-        return FeedErorrViewModel(message: .none)
-    }
-    
-    static func error(message: String) -> FeedErorrViewModel {
-        return FeedErorrViewModel(message: message)
-    }
-}
-
 public protocol FeedLoadingView {
     func display(_ viewModel: FeedLoadingViewModel)
-}
-
-public protocol FeedErrorView {
-    func display(_ viewModel: FeedErorrViewModel)
 }
 
 public final class FeedPresenter {

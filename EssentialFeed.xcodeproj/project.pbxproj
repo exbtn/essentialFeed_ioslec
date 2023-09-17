@@ -37,6 +37,7 @@
 		6D32316C2AB7308B00ABCBC7 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D32316B2AB7308B00ABCBC7 /* FeedPresenter.swift */; };
 		6D32316D2AB7312C00ABCBC7 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D3231672AB72D0700ABCBC7 /* Feed.strings */; };
 		6D32316F2AB7317300ABCBC7 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D32316E2AB7317300ABCBC7 /* FeedViewModel.swift */; };
+		6D3231712AB731B300ABCBC7 /* FeedErorrViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3231702AB731B300ABCBC7 /* FeedErorrViewModel.swift */; };
 		6D3344302A5AF02B00AB7E43 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D3344282A5AF02B00AB7E43 /* EssentialFeediOS.framework */; };
 		6D42B9EA2AB0AE5E00DBD714 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D42B9E92AB0AE5E00DBD714 /* Feed.storyboard */; };
 		6D42B9EC2AB0BAAE00DBD714 /* UITableView+Dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D42B9EB2AB0BAAE00DBD714 /* UITableView+Dequeueing.swift */; };
@@ -165,6 +166,7 @@
 		6D3231692AB72D0D00ABCBC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Feed.strings; sourceTree = "<group>"; };
 		6D32316B2AB7308B00ABCBC7 /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		6D32316E2AB7317300ABCBC7 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		6D3231702AB731B300ABCBC7 /* FeedErorrViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErorrViewModel.swift; sourceTree = "<group>"; };
 		6D3344222A5AE7FA00AB7E43 /* EssentialFeedAPIEndToEndTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeedAPIEndToEndTests.xctestplan; sourceTree = "<group>"; };
 		6D3344282A5AF02B00AB7E43 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D33442F2A5AF02B00AB7E43 /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -456,6 +458,7 @@
 			children = (
 				6D32316B2AB7308B00ABCBC7 /* FeedPresenter.swift */,
 				6D32316E2AB7317300ABCBC7 /* FeedViewModel.swift */,
+				6D3231702AB731B300ABCBC7 /* FeedErorrViewModel.swift */,
 				6D3231672AB72D0700ABCBC7 /* Feed.strings */,
 			);
 			path = "Feed Presentation";
@@ -828,6 +831,7 @@
 				6D5AEE1B2A292E1500AF8DE3 /* HTTPClient.swift in Sources */,
 				6D1A3A282A2503B100027018 /* FeedImage.swift in Sources */,
 				6D99F8A62A2BCB31006ECDD4 /* URLSessionHTTPClient.swift in Sources */,
+				6D3231712AB731B300ABCBC7 /* FeedErorrViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
