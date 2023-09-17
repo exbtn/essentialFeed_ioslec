@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import EssentialFeediOS
+@testable import EssentialFeed
 
 final class FeedLocalizationTests: XCTestCase {
     
@@ -50,7 +50,7 @@ final class FeedLocalizationTests: XCTestCase {
     private func allLocalizedStringKeys(in bundles: [LocalizedBundle], table: String, file: StaticString = #file, line: UInt = #line) -> Set<String> {
         return bundles.reduce([]) { (acc, current) in
             guard
-                let path = current.bundle.path(forResource: table, ofType: "stringsdict"),
+                let path = current.bundle.path(forResource: table, ofType: "strings"),
                 let strings = NSDictionary(contentsOfFile: path),
                 let keys = strings.allKeys as? [String]
             else {
