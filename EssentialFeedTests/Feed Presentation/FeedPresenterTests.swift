@@ -19,7 +19,9 @@ struct FeedLoadingViewModel {
 struct FeedErorrViewModel {
     let message: String?
     
-    static var noError: FeedErorrViewModel { FeedErorrViewModel(message: .none) }
+    static var noError: FeedErorrViewModel {
+        return FeedErorrViewModel(message: .none)
+    }
     
     static func error(message: String) -> FeedErorrViewModel {
         return FeedErorrViewModel(message: message)
