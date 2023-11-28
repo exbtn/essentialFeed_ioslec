@@ -23,10 +23,10 @@ protocol FeedImageView {
 }
 
 final class FeedImagePresenter {
-    private let view: any FeedImageView
+    private let view: FeedImageView
     private let imageTransformer: (Data) -> Any?
     
-    init(view: any FeedImageView, imageTransformer: @escaping (Data) -> Any?) {
+    init(view: FeedImageView, imageTransformer: @escaping (Data) -> Any?) {
         self.view = view
         self.imageTransformer = imageTransformer
     }
