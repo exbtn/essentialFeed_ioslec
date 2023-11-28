@@ -6,10 +6,36 @@
 //
 
 import XCTest
+import EssentialFeed
+
+struct FeedImageViewModel {
+    let description: String?
+    let location: String?
+    let image: Any?
+    let isLoading: Bool
+    let shouldRetry: Bool
+    
+    var hasLocation: Bool { location != nil }
+}
+
+protocol FeedImageView {
+    func display(_ viewModel: FeedImageViewModel)
+}
 
 final class FeedImagePresenter {
-    init(view: Any) {
-        
+    private let view: any FeedImageView
+    
+    init(view: any FeedImageView) {
+        self.view = view
+    }
+    
+    func didStartLoadingImageData(for model: FeedImage) {
+        view.display(FeedImageViewModel(
+            description: model.description,
+            location: model.location,
+            image: nil,
+            isLoading: true,
+            shouldRetry: false))
     }
 }
 
@@ -19,6 +45,21 @@ final class FeedImagePresenterTests: XCTestCase {
         let (_, view) = makeSUT()
         
         XCTAssertTrue(view.messages.isEmpty, "Expect no view messages")
+    }
+    
+    func test_didStartLoadingImageData_hasNoImageLoadedAndStartLoading() {
+        let (loader, view) = makeSUT()
+        let feedImage = uniqueImage()
+        
+        loader.didStartLoadingImageData(for: feedImage)
+        
+        let message = view.messages.first
+        XCTAssertEqual(view.messages.count, 1)
+        XCTAssertEqual(message?.description, feedImage.description)
+        XCTAssertEqual(message?.location, feedImage.location)
+        XCTAssertEqual(message?.isLoading, true)
+        XCTAssertEqual(message?.shouldRetry, false)
+        XCTAssertNil(message?.image)
     }
     
     // MARK: - Helpers
@@ -31,8 +72,17 @@ final class FeedImagePresenterTests: XCTestCase {
         return (sut, view)
     }
     
-    private class ViewSpy {
-        let messages = [Any]()
+    private class ViewSpy: FeedImageView {
+        
+        enum Messages: Hashable {
+            case display(data: Data?, isLoading: Bool)
+        }
+        
+        private(set) var messages = [FeedImageViewModel]()
+        
+        func display(_ viewModel: FeedImageViewModel) {
+            messages.append(viewModel)
+        }
     }
     
 }
