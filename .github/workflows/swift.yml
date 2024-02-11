@@ -12,19 +12,18 @@ on:
 jobs:
   build_and_test:
   
-    runs-on: macos-latest
+    runs-on: macos-13
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
-    - name: List Simulators
-      run: xcrun simctl list
-      
-    - uses: maxim-lobanov/setup-xcode@v1
-      with:
-        xcode-version: latest-stable
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
+    
+    - name: Xcode version
+      run: /usr/bin/xcodebuild -version
     
     - name: Clean Build Test
       run: |
-        xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "OS=16.2,name=iPhone 14 Pro" ONLY_ACTIVE_ARCH=YES
+        xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2" ONLY_ACTIVE_ARCH=YES
         xcodebuild clean build test -project EssentialFeed.xcodeproj -scheme "CI_macOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk macosx -destination "platform=macOS" ONLY_ACTIVE_ARCH=YES
