@@ -126,6 +126,17 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
         XCTAssertTrue(capturedResults.isEmpty)
     }
     
+    func test_cancelLoadImageDataURLTask_cancelsClientURLRequest() {
+        let (sut, client) = makeSUT()
+        let url = URL(string: "https://a-given-url.com")!
+        
+        let task = sut.loadImageData(from: url) { _ in }
+        XCTAssertTrue(client.cancelledURLs.isEmpty, "Expect no cancelled URL request until task is cancelled")
+        
+        task.cancel()
+        XCTAssertEqual(client.cancelledURLs, [url], "Expect cancelled URL request after task is cancelled")
+    }
+    
     private func failure(_ error: RemoteFeedImageDataLoader.Error) -> FeedImageDataLoader.Result {
         return .failure(error)
     }
