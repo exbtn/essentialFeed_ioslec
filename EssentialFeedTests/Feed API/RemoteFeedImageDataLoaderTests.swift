@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-class RemoteFeedImageDataLoader {
+class RemoteFeedImageDataLoader: FeedImageDataLoader {
     
     private let client: HTTPClient
     
