@@ -25,11 +25,7 @@ final class FeedLoaderWithFallbackCompositeTests: XCTestCase {
     func test_load_deliversPrimaryFeedOnPrimaryLoaderSuccess() {
         let primaryFeed = uniqueFeed()
         let fallbackFeed = uniqueFeed()
-        
-        let primaryLoader = LoaderStub(result: .success(primaryFeed))
-        let fallbackLoader = LoaderStub(result: .success(fallbackFeed))
-        
-        let sut = FeedLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)
+        let sut = makeSUT(primaryResult: .success(primaryFeed), fallbackResult: .success(fallbackFeed))
         
         let exp = expectation(description: "Wait for load completion")
         sut.load { result in
@@ -43,6 +39,18 @@ final class FeedLoaderWithFallbackCompositeTests: XCTestCase {
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(primaryResult: FeedLoader.Result, fallbackResult: FeedLoader.Result, file: StaticString = #file, line: UInt = #line) -> FeedLoader {
+        let primaryLoader = LoaderStub(result: primaryResult)
+        let fallbackLoader = LoaderStub(result: fallbackResult)
+        let sut = FeedLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)
+        trackForMemoryLeak(primaryLoader, file: file, line: line)
+        trackForMemoryLeak(fallbackLoader, file: file, line: line)
+        trackForMemoryLeak(sut, file: file, line: line)
+        return sut
     }
     
     private class LoaderStub: FeedLoader {
@@ -61,4 +69,9 @@ final class FeedLoaderWithFallbackCompositeTests: XCTestCase {
         return [FeedImage(id: UUID(), description: "any", location: "any", url: URL(string: "https://any-url.com")!)]
     }
 
+    func trackForMemoryLeak(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should be deallocated. Potential memory leak.", file: file, line: line)
+        }
+    }
 }
