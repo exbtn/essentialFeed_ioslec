@@ -33,6 +33,15 @@ class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
 
 final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     
+    func test_init_doesNotLoadImageData() {
+        let primaryLoader = ImageDataLoaderStub(result: .success(Data()))
+        let fallBackLoader = ImageDataLoaderStub(result: .success(Data()))
+        _ = FeedImageDataLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallBackLoader)
+        
+        XCTAssertTrue(primaryLoader.loadedURLs.isEmpty)
+        XCTAssertTrue(fallBackLoader.loadedURLs.isEmpty)
+    }
+    
     func test_load_deliversPrimaryImageDataOnPrimaryLoaderSuccess() {
         let primaryData = Data("primary".utf8)
         let fallbackData = Data("fallback".utf8)
@@ -89,6 +98,12 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     
     private class ImageDataLoaderStub: FeedImageDataLoader {
         private let result: FeedImageDataLoader.Result
+        
+        private var messages = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
+        
+        var loadedURLs: [URL] {
+            return messages.map(\.url)
+        }
         
         private struct Task: FeedImageDataLoaderTask {
             func cancel() {}
