@@ -24,6 +24,7 @@
 		6D92B0002B89A6EB00C9589B /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D92AFFF2B89A6EB00C9589B /* FeedLoaderWithFallbackComposite.swift */; };
 		6D92B0022B89A78000C9589B /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D92B0012B89A78000C9589B /* FeedImageDataLoaderWithFallbackCompositeTests.swift */; };
 		6DE472F52B89E9A20072AC25 /* FeedLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE472F42B89E9A20072AC25 /* FeedLoaderCacheDecoratorTests.swift */; };
+		6DE472F72B89EBAC0072AC25 /* FeedLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE472F62B89EBAC0072AC25 /* FeedLoaderStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		6D92AFFF2B89A6EB00C9589B /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		6D92B0012B89A78000C9589B /* FeedImageDataLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		6DE472F42B89E9A20072AC25 /* FeedLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
+		6DE472F62B89EBAC0072AC25 /* FeedLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				6D6A3AAC2B89BBE8009AE506 /* XCTestCase+MemoryLeakTracking.swift */,
 				6D6A3AAE2B89BC86009AE506 /* SharedTestHelpers.swift */,
+				6DE472F62B89EBAC0072AC25 /* FeedLoaderStub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				6D92B0022B89A78000C9589B /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				6D1ED9082B87113B005D9E60 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
 				6DE472F52B89E9A20072AC25 /* FeedLoaderCacheDecoratorTests.swift in Sources */,
+				6DE472F72B89EBAC0072AC25 /* FeedLoaderStub.swift in Sources */,
 				6D6A3AAD2B89BBE8009AE506 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
