@@ -244,6 +244,7 @@
 		6D99F8B62A2BDA72006ECDD4 /* CI_macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_macOS.xctestplan; sourceTree = SOURCE_ROOT; };
 		6D9B35DC2A34FD220061A87B /* LoadFeedFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		6D9B35DF2A34FDEE0061A87B /* FeedStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpy.swift; sourceTree = "<group>"; };
+		6DB6C60E2B8A195C0021E296 /* EssentialApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialApp.xctestplan; sourceTree = "<group>"; };
 		6DC842EE2A2A73080018B0E9 /* EssentialFeed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeed.xctestplan; sourceTree = "<group>"; };
 		6DE472FA2B89F5040072AC25 /* FeedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCache.swift; sourceTree = "<group>"; };
 		6DE473042B8A02B80072AC25 /* FeedImageDataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataCache.swift; sourceTree = "<group>"; };
@@ -596,6 +597,7 @@
 				6D99F8B62A2BDA72006ECDD4 /* CI_macOS.xctestplan */,
 				6D33443D2A5AF1DC00AB7E43 /* CI_iOS.xctestplan */,
 				6DC842EE2A2A73080018B0E9 /* EssentialFeed.xctestplan */,
+				6DB6C60E2B8A195C0021E296 /* EssentialApp.xctestplan */,
 			);
 			name = TestPlans;
 			sourceTree = "<group>";
