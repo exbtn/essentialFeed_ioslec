@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 import EssentialFeed
 import EssentialFeediOS
 
@@ -20,16 +21,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let url = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
+        let remoteUrl = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
         let session = URLSession(configuration: .ephemeral)
         
-        let client = URLSessionHTTPClient(session: session)
-        let imageLoader = RemoteFeedImageDataLoader(client: client)
-        let feedLoader = RemoteFeedLoader(url: url, client: client)
+        let remoteClient = URLSessionHTTPClient(session: session)
+        let remoteImageLoader = RemoteFeedImageDataLoader(client: remoteClient)
+        let remoteFeedLoader = RemoteFeedLoader(url: remoteUrl, client: remoteClient)
+        
+        let localStoreURL = NSPersistentContainer
+            .defaultDirectoryURL()
+            .appending(path: "feed-store.sqlite")
+        
+        let localStore = try! CoreDataFeedStore(storeURL: localStoreURL)
+        let localFeedLoader = LocalFeedLoader(store: localStore, currentDate: Date.init)
+        let localImageLoader = LocalFeedImageDataLoader(store: localStore)
         
         let feedViewController = FeedUIComposer.feedComposedWith(
-            feedLoader: feedLoader,
-            imageLoader: imageLoader)
+            feedLoader: FeedLoaderWithFallbackComposite(
+                primary: remoteFeedLoader,
+                fallback: localFeedLoader),
+            imageLoader: FeedImageDataLoaderWithFallbackComposite(
+                primary: localImageLoader,
+                fallback: remoteImageLoader))
         
         window?.rootViewController = feedViewController
     }
