@@ -10,13 +10,23 @@ import EssentialFeed
 
 class FeedLoaderWithFallbackComposite: FeedLoader {
     let primary: FeedLoader
+    let fallback: FeedLoader
     
     init(primary: FeedLoader, fallback: FeedLoader) {
         self.primary = primary
+        self.fallback = fallback
     }
     
     func load(completion: @escaping (FeedLoader.Result) -> Void) {
-        primary.load(completion: completion)
+        primary.load { [weak self] result in
+            switch result {
+            case .failure:
+                self?.fallback.load(completion: completion)
+                
+            case .success:
+                completion(result)
+            }
+        }
     }
 }
 
@@ -35,6 +45,24 @@ final class FeedLoaderWithFallbackCompositeTests: XCTestCase {
                 
             case .failure:
                 XCTFail("Expected successful load feed result, got \(result) instead")
+            }
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1)
+    }
+    
+    func test_load_deliversFallbackFeedOnPrimaryFailure() {
+        let fallbackFeed = uniqueFeed()
+        let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(fallbackFeed))
+        
+        let exp = expectation(description: "Wait for load completion")
+        sut.load { result in
+            switch result {
+            case let .success(receivedFeed):
+                XCTAssertEqual(receivedFeed, fallbackFeed)
+                
+            case .failure:
+                XCTFail("Expected successful laod feed result, got \(result) instead")
             }
             exp.fulfill()
         }
@@ -73,5 +101,9 @@ final class FeedLoaderWithFallbackCompositeTests: XCTestCase {
         addTeardownBlock { [weak instance] in
             XCTAssertNil(instance, "Instance should be deallocated. Potential memory leak.", file: file, line: line)
         }
+    }
+    
+    func anyNSError() -> NSError {
+        return NSError(domain: "any error", code: 0)
     }
 }
