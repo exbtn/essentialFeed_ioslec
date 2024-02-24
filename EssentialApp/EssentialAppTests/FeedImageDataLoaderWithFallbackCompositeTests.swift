@@ -34,19 +34,15 @@ class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
 final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     
     func test_init_doesNotLoadImageData() {
-        let primaryLoader = LoaderSpy()
-        let fallBackLoader = LoaderSpy()
-        _ = FeedImageDataLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallBackLoader)
+        let (_, primaryLoader, fallBackLoader) = makeSUT()
         
         XCTAssertTrue(primaryLoader.loadedURLs.isEmpty)
         XCTAssertTrue(fallBackLoader.loadedURLs.isEmpty)
     }
     
     func test_load_loadsFromPrimaryFirst() {
-        let primaryLoader = LoaderSpy()
-        let fallBackLoader = LoaderSpy()
         let url = anyURL()
-        let sut = FeedImageDataLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallBackLoader)
+        let (sut, primaryLoader, fallBackLoader) = makeSUT()
         
         _ = sut.loadImageData(from: url) { _ in }
         
@@ -55,10 +51,8 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     }
     
     func test_load_loadsFromFallbackOnPrimaryFailure() {
-        let primaryLoader = LoaderSpy()
-        let fallBackLoader = LoaderSpy()
         let url = anyURL()
-        let sut = FeedImageDataLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallBackLoader)
+        let (sut, primaryLoader, fallBackLoader) = makeSUT()
         
         _ = sut.loadImageData(from: url) { _ in }
         primaryLoader.complete(with: anyNSError())
@@ -69,14 +63,14 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> FeedImageDataLoader {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoader, primary: LoaderSpy, fallback: LoaderSpy) {
         let primaryLoader = LoaderSpy()
         let fallbackLoader = LoaderSpy()
         let sut = FeedImageDataLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)
         trackForMemoryLeak(primaryLoader, file: file, line: line)
         trackForMemoryLeak(fallbackLoader, file: file, line: line)
         trackForMemoryLeak(sut, file: file, line: line)
-        return sut
+        return (sut, primaryLoader, fallbackLoader)
     }
     
     private class LoaderSpy: FeedImageDataLoader {
