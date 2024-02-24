@@ -52,6 +52,15 @@ final class FeedImageCellController: FeedImageView {
         }
     }
     
+    func didEndDisplaying() {
+        cell = nil
+        delegate.didCancelImageRequest()
+    }
+    
+    func willDisplayCell(_ cell: UITableViewCell) {
+        self.cell = cell as? FeedImageCell
+    }
+    
     private func releaseCellForReuse() {
         cell = nil
     }
