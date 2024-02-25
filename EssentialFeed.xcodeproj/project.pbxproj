@@ -184,6 +184,7 @@
 		6D3344282A5AF02B00AB7E43 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D33442F2A5AF02B00AB7E43 /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D33443D2A5AF1DC00AB7E43 /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_iOS.xctestplan; sourceTree = "<group>"; };
+		6D3384DF2B8BDBF3001CC8AD /* EssentialAppTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialAppTests.xctestplan; sourceTree = "<group>"; };
 		6D42B9E92AB0AE5E00DBD714 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		6D42B9EB2AB0BAAE00DBD714 /* UITableView+Dequeueing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeueing.swift"; sourceTree = "<group>"; };
 		6D42B9ED2AB0BB7600DBD714 /* UIImageView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
@@ -537,6 +538,7 @@
 				6D33443D2A5AF1DC00AB7E43 /* CI_iOS.xctestplan */,
 				6DC842EE2A2A73080018B0E9 /* EssentialFeed.xctestplan */,
 				6DB6C60E2B8A195C0021E296 /* EssentialApp.xctestplan */,
+				6D3384DF2B8BDBF3001CC8AD /* EssentialAppTests.xctestplan */,
 			);
 			name = TestPlans;
 			sourceTree = "<group>";
