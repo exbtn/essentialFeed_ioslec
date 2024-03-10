@@ -16,6 +16,7 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     
     private var onViewIsAppearing: ((FeedViewController) -> Void)?
     
+    @IBOutlet private(set) public var errorView: ErrorView?
     public var delegate: FeedViewControllerDelegate?
     
     private var tableModel = [FeedImageCellController]() {
@@ -25,6 +26,7 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureErrorView()
         onViewIsAppearing = { vc in
             vc.onViewIsAppearing = nil
             vc.refresh()
@@ -35,6 +37,20 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
         super.viewIsAppearing(animated)
         
         onViewIsAppearing?(self)
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        tableView.sizeTableHeaderToFit()
+    }
+    
+    private func configureErrorView() {
+        errorView?.onHide = { [weak self] in
+            self?.tableView.beginUpdates()
+            self?.tableView.sizeTableHeaderToFit()
+            self?.tableView.endUpdates()
+        }
     }
     
     @IBAction private func refresh() {
@@ -50,7 +66,7 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     }
     
     public func display(_ viewModel: FeedErorrViewModel) {
-        
+        errorView?.message = viewModel.message
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

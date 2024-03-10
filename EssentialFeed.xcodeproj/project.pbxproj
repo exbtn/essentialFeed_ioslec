@@ -48,6 +48,8 @@
 		6D3344302A5AF02B00AB7E43 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D3344282A5AF02B00AB7E43 /* EssentialFeediOS.framework */; };
 		6D3384E52B9E39ED001CC8AD /* FeedSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3384E42B9E39ED001CC8AD /* FeedSnapshotTests.swift */; };
 		6D3384E82B9E405D001CC8AD /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3384E72B9E405D001CC8AD /* UIImage+TestHelpers.swift */; };
+		6D3384ED2B9E44FE001CC8AD /* UITableView+HeaderSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3384EC2B9E44FE001CC8AD /* UITableView+HeaderSizing.swift */; };
+		6D3384EF2B9E458D001CC8AD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3384EE2B9E458D001CC8AD /* ErrorView.swift */; };
 		6D42B9EA2AB0AE5E00DBD714 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D42B9E92AB0AE5E00DBD714 /* Feed.storyboard */; };
 		6D42B9EC2AB0BAAE00DBD714 /* UITableView+Dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D42B9EB2AB0BAAE00DBD714 /* UITableView+Dequeueing.swift */; };
 		6D42B9EE2AB0BB7600DBD714 /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D42B9ED2AB0BB7600DBD714 /* UIImageView+Animations.swift */; };
@@ -189,6 +191,8 @@
 		6D3384DF2B8BDBF3001CC8AD /* EssentialAppTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialAppTests.xctestplan; sourceTree = "<group>"; };
 		6D3384E42B9E39ED001CC8AD /* FeedSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSnapshotTests.swift; sourceTree = "<group>"; };
 		6D3384E72B9E405D001CC8AD /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
+		6D3384EC2B9E44FE001CC8AD /* UITableView+HeaderSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+HeaderSizing.swift"; sourceTree = "<group>"; };
+		6D3384EE2B9E458D001CC8AD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		6D42B9E92AB0AE5E00DBD714 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		6D42B9EB2AB0BAAE00DBD714 /* UITableView+Dequeueing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeueing.swift"; sourceTree = "<group>"; };
 		6D42B9ED2AB0BB7600DBD714 /* UIImageView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 		6D12CDC52A9B68E700DAC1B2 /* FeedUI */ = {
 			isa = PBXGroup;
 			children = (
+				6D3384EB2B9E44ED001CC8AD /* Helpers */,
 				6D12CDC62A9B68EE00DAC1B2 /* Controllers */,
 				6D12CDC72A9B68F800DAC1B2 /* Views */,
 			);
@@ -337,6 +342,7 @@
 			children = (
 				6D12CDC02A9AA41C00DAC1B2 /* UIView+Shimmering.swift */,
 				6D12CDBE2A9A93AB00DAC1B2 /* FeedImageCell.swift */,
+				6D3384EE2B9E458D001CC8AD /* ErrorView.swift */,
 				6D42B9E92AB0AE5E00DBD714 /* Feed.storyboard */,
 				6D42B9EB2AB0BAAE00DBD714 /* UITableView+Dequeueing.swift */,
 				6D42B9ED2AB0BB7600DBD714 /* UIImageView+Animations.swift */,
@@ -489,6 +495,14 @@
 			isa = PBXGroup;
 			children = (
 				6D3384E72B9E405D001CC8AD /* UIImage+TestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6D3384EB2B9E44ED001CC8AD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6D3384EC2B9E44FE001CC8AD /* UITableView+HeaderSizing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -903,11 +917,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D42B9EC2AB0BAAE00DBD714 /* UITableView+Dequeueing.swift in Sources */,
+				6D3384ED2B9E44FE001CC8AD /* UITableView+HeaderSizing.swift in Sources */,
 				6D12CDC12A9AA41C00DAC1B2 /* UIView+Shimmering.swift in Sources */,
 				6D1FC9732A9950D5004592EF /* FeedViewController.swift in Sources */,
 				6D42B9EE2AB0BB7600DBD714 /* UIImageView+Animations.swift in Sources */,
 				6D12CDBF2A9A93AB00DAC1B2 /* FeedImageCell.swift in Sources */,
 				6D12CDCB2A9B6EC100DAC1B2 /* FeedImageCellController.swift in Sources */,
+				6D3384EF2B9E458D001CC8AD /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
